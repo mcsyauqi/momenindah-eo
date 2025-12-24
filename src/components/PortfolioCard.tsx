@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Users, ArrowRight } from "lucide-react";
 
 interface PortfolioCardProps {
@@ -10,6 +11,7 @@ interface PortfolioCardProps {
   category: string;
   guests: string;
   location: string;
+  thumbnail?: string;
   index: number;
 }
 
@@ -19,15 +21,9 @@ export default function PortfolioCard({
   category,
   guests,
   location,
+  thumbnail,
   index,
 }: PortfolioCardProps) {
-  const gradients = [
-    "from-purple-500 to-pink-500",
-    "from-pink-500 to-orange-500",
-    "from-orange-500 to-yellow-500",
-    "from-blue-500 to-purple-500",
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -37,12 +33,18 @@ export default function PortfolioCard({
     >
       <Link href={`/portfolio/${slug}`}>
         <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all">
-          {/* Image Placeholder */}
-          <div
-            className={`h-64 bg-gradient-to-br ${
-              gradients[index % gradients.length]
-            } relative overflow-hidden`}
-          >
+          {/* Image */}
+          <div className="h-64 relative overflow-hidden">
+            {thumbnail ? (
+              <Image
+                src={thumbnail}
+                alt={title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            ) : (
+              <div className="h-full w-full bg-gradient-to-br from-purple-500 to-pink-500" />
+            )}
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
             <div className="absolute bottom-4 left-4">
               <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium">

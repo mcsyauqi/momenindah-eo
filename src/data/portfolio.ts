@@ -8,6 +8,7 @@ export interface PortfolioItem {
   description: string;
   highlights: string[];
   images: string[];
+  thumbnail: string;
 }
 
 export const portfolioData: PortfolioItem[] = [
@@ -26,7 +27,8 @@ export const portfolioData: PortfolioItem[] = [
       "Awarding ceremony untuk best performers",
       "Live music performance"
     ],
-    images: ["/portfolio/xyz-bank-1.jpg", "/portfolio/xyz-bank-2.jpg", "/portfolio/xyz-bank-3.jpg"]
+    images: ["/images/portfolio/corporate-event.svg"],
+    thumbnail: "/images/portfolio/corporate-event.svg"
   },
   {
     slug: "abc-tech-product-launch",
@@ -43,7 +45,8 @@ export const portfolioData: PortfolioItem[] = [
       "Media coverage 50+ outlet",
       "Networking session dengan investor"
     ],
-    images: ["/portfolio/abc-tech-1.jpg", "/portfolio/abc-tech-2.jpg", "/portfolio/abc-tech-3.jpg"]
+    images: ["/images/portfolio/product-launch.svg"],
+    thumbnail: "/images/portfolio/product-launch.svg"
   },
   {
     slug: "fashion-week-exhibition",
@@ -60,7 +63,8 @@ export const portfolioData: PortfolioItem[] = [
       "Pop-up store exclusive",
       "Photo booth interaktif"
     ],
-    images: ["/portfolio/fashion-week-1.jpg", "/portfolio/fashion-week-2.jpg", "/portfolio/fashion-week-3.jpg"]
+    images: ["/images/portfolio/exhibition.svg"],
+    thumbnail: "/images/portfolio/exhibition.svg"
   },
   {
     slug: "startup-networking-night",
@@ -77,7 +81,8 @@ export const portfolioData: PortfolioItem[] = [
       "Cocktail dan fine dining",
       "Live acoustic performance"
     ],
-    images: ["/portfolio/startup-night-1.jpg", "/portfolio/startup-night-2.jpg", "/portfolio/startup-night-3.jpg"]
+    images: ["/images/portfolio/gala-dinner.svg"],
+    thumbnail: "/images/portfolio/gala-dinner.svg"
   },
   {
     slug: "corporate-team-building-2024",
@@ -94,7 +99,8 @@ export const portfolioData: PortfolioItem[] = [
       "Leadership workshop",
       "Amazing race"
     ],
-    images: ["/portfolio/team-building-1.jpg", "/portfolio/team-building-2.jpg", "/portfolio/team-building-3.jpg"]
+    images: ["/images/portfolio/team-building.svg"],
+    thumbnail: "/images/portfolio/team-building.svg"
   },
   {
     slug: "virtual-conference-2024",
@@ -111,7 +117,8 @@ export const portfolioData: PortfolioItem[] = [
       "Interactive Q&A sessions",
       "Digital goodie bags"
     ],
-    images: ["/portfolio/virtual-conf-1.jpg", "/portfolio/virtual-conf-2.jpg", "/portfolio/virtual-conf-3.jpg"]
+    images: ["/images/portfolio/virtual-event.svg"],
+    thumbnail: "/images/portfolio/virtual-event.svg"
   }
 ];
 

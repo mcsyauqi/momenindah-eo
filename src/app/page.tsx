@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Building2,
   Rocket,
@@ -99,12 +100,12 @@ const testimonials = [
 ];
 
 const clients = [
-  "Bank XYZ",
-  "ABC Tech",
-  "Fashion Brand",
-  "Startup Inc",
-  "Media Corp",
-  "Health Plus",
+  { name: "Bank XYZ", logo: "/images/clients/bank-xyz.svg" },
+  { name: "ABC Tech", logo: "/images/clients/abc-tech.svg" },
+  { name: "Fashion Brand", logo: "/images/clients/fashion-brand.svg" },
+  { name: "Startup Inc", logo: "/images/clients/startup-inc.svg" },
+  { name: "Media Corp", logo: "/images/clients/media-corp.svg" },
+  { name: "Health Plus", logo: "/images/clients/health-plus.svg" },
 ];
 
 export default function Home() {
@@ -112,8 +113,16 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 gradient-primary opacity-90" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/hero-bg.svg"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
         <Confetti />
 
         {/* Decorative Elements */}
@@ -232,6 +241,7 @@ export default function Home() {
                 category={item.category}
                 guests={item.guests}
                 location={item.location}
+                thumbnail={item.thumbnail}
                 index={index}
               />
             ))}
@@ -256,14 +266,20 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {clients.map((client, index) => (
               <motion.div
-                key={client}
+                key={client.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center justify-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow"
+                className="flex items-center justify-center p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow h-24"
               >
-                <span className="text-gray-600 font-semibold">{client}</span>
+                <Image
+                  src={client.logo}
+                  alt={client.name}
+                  width={160}
+                  height={60}
+                  className="object-contain"
+                />
               </motion.div>
             ))}
           </div>

@@ -1,0 +1,19 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="svc3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#EF4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#svc3)"/>
+  <g transform="translate(300, 180)">
+    <rect x="-90" y="-50" width="50" height="80" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <rect x="-25" y="-50" width="50" height="80" rx="4" fill="rgba(255,255,255,0.2)"/>
+    <rect x="40" y="-50" width="50" height="80" rx="4" fill="rgba(255,255,255,0.25)"/>
+    <circle cx="-65" cy="-25" r="12" fill="rgba(255,255,255,0.35)"/>
+    <circle cx="0" cy="-25" r="12" fill="rgba(255,255,255,0.35)"/>
+    <circle cx="65" cy="-25" r="12" fill="rgba(255,255,255,0.35)"/>
+    <rect x="-90" y="45" width="180" height="8" rx="4" fill="rgba(255,255,255,0.15)"/>
+  </g>
+  <text x="300" y="330" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Exhibition & Expo</text>
+</svg>

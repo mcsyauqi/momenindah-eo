@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Building2,
   Rocket,
@@ -27,7 +28,7 @@ const services = [
       "MC dan entertainment",
       "Dokumentasi foto dan video",
     ],
-    image: "from-purple-500 to-pink-500",
+    image: "/images/services/corporate.svg",
   },
   {
     icon: Rocket,
@@ -41,7 +42,7 @@ const services = [
       "Live streaming",
       "Merchandise dan giveaway",
     ],
-    image: "from-pink-500 to-orange-500",
+    image: "/images/services/launching.svg",
   },
   {
     icon: Store,
@@ -55,7 +56,7 @@ const services = [
       "Traffic management",
       "Post-event report",
     ],
-    image: "from-orange-500 to-yellow-500",
+    image: "/images/services/exhibition.svg",
   },
   {
     icon: UtensilsCrossed,
@@ -69,7 +70,7 @@ const services = [
       "Award ceremony",
       "Dress code management",
     ],
-    image: "from-blue-500 to-purple-500",
+    image: "/images/services/gala.svg",
   },
   {
     icon: Users,
@@ -83,7 +84,7 @@ const services = [
       "Team assessment",
       "Fun games dan challenge",
     ],
-    image: "from-green-500 to-teal-500",
+    image: "/images/services/teambuilding.svg",
   },
   {
     icon: Monitor,
@@ -97,7 +98,7 @@ const services = [
       "Technical support",
       "Recording dan replay",
     ],
-    image: "from-indigo-500 to-blue-500",
+    image: "/images/services/virtual.svg",
   },
 ];
 
@@ -145,13 +146,13 @@ export default function LayananPage() {
               >
                 {/* Image */}
                 <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div
-                    className={`h-80 lg:h-96 rounded-2xl bg-gradient-to-br ${service.image} relative overflow-hidden`}
-                  >
-                    <div className="absolute inset-0 bg-black/20" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <service.icon className="w-24 h-24 text-white/80" />
-                    </div>
+                  <div className="h-80 lg:h-96 rounded-2xl relative overflow-hidden shadow-xl">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
 

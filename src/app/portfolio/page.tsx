@@ -79,6 +79,7 @@ export default function PortfolioPage() {
                 category={item.category}
                 guests={item.guests}
                 location={item.location}
+                thumbnail={item.thumbnail}
                 index={index}
               />
             ))}
