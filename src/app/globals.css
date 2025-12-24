@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #7C3AED;
+  --secondary: #EC4899;
+  --accent: #F59E0B;
+  --background: #FAF5FF;
+  --text: #1E1B4B;
+  --white: #ffffff;
+  --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-background: var(--background);
+  --color-text: var(--text);
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Confetti animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: confetti-fall 5s linear infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scroll animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
