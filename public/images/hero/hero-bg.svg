@@ -10,13 +10,17 @@
   </defs>
   <rect width="100%" height="100%" fill="url(#bg)"/>
   <rect width="100%" height="100%" fill="url(#dots)"/>
-  <g transform="translate(960, 400)">
-    <circle cx="0" cy="0" r="80" fill="rgba(255,255,255,0.2)"/>
-    <circle cx="-150" cy="100" r="40" fill="rgba(255,255,255,0.15)"/>
-    <circle cx="180" cy="80" r="60" fill="rgba(255,255,255,0.15)"/>
-    <circle cx="-200" cy="-50" r="30" fill="rgba(245,158,11,0.3)"/>
-    <circle cx="250" cy="-80" r="50" fill="rgba(236,72,153,0.3)"/>
-  </g>
-  <text x="960" y="540" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Event Organizer</text>
-  <text x="960" y="600" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.8)" text-anchor="middle">Creating Memorable Moments</text>
+  <!-- Decorative circles -->
+  <circle cx="200" cy="200" r="150" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="1700" cy="300" r="200" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="300" cy="800" r="250" fill="rgba(236,72,153,0.15)"/>
+  <circle cx="1600" cy="900" r="180" fill="rgba(245,158,11,0.1)"/>
+  <circle cx="960" cy="540" r="300" fill="rgba(255,255,255,0.05)"/>
+  <!-- Small dots decoration -->
+  <circle cx="400" cy="150" r="8" fill="rgba(245,158,11,0.6)"/>
+  <circle cx="1500" cy="200" r="6" fill="rgba(236,72,153,0.6)"/>
+  <circle cx="250" cy="600" r="5" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="1700" cy="700" r="7" fill="rgba(245,158,11,0.5)"/>
+  <circle cx="800" cy="100" r="4" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="1100" cy="950" r="6" fill="rgba(236,72,153,0.5)"/>
 </svg>
