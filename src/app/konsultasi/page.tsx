@@ -10,8 +10,16 @@ import {
   Users,
   MapPin,
   CheckCircle,
+  ArrowRight,
+  Star,
+  Quote,
+  ChevronDown,
+  Clock,
+  FileText,
+  ThumbsUp,
 } from "lucide-react";
 import Button from "@/components/Button";
+import SectionTitle from "@/components/SectionTitle";
 
 const eventTypes = [
   "Corporate Event",
@@ -352,6 +360,216 @@ export default function KonsultasiPage() {
           </div>
         </div>
       </section>
+
+      {/* Process Section */}
+      <section className="py-20 bg-[#FAF5FF]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            subtitle="Proses"
+            title="Bagaimana Konsultasi Bekerja"
+            description="4 langkah mudah untuk memulai perjalanan event Anda"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                step: "1",
+                icon: FileText,
+                title: "Isi Form",
+                description: "Lengkapi form konsultasi dengan detail kebutuhan event Anda",
+              },
+              {
+                step: "2",
+                icon: Phone,
+                title: "Konsultasi",
+                description: "Tim kami akan menghubungi Anda untuk diskusi lebih lanjut",
+              },
+              {
+                step: "3",
+                icon: Clock,
+                title: "Proposal",
+                description: "Terima proposal custom sesuai kebutuhan dan budget Anda",
+              },
+              {
+                step: "4",
+                icon: ThumbsUp,
+                title: "Deal!",
+                description: "Setujui proposal dan mulai persiapan event bersama kami",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="bg-white rounded-2xl p-6 shadow-lg h-full text-center">
+                  <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <span className="inline-block px-3 py-1 rounded-full bg-[#7C3AED]/10 text-[#7C3AED] text-sm font-semibold mb-3">
+                    Step {item.step}
+                  </span>
+                  <h3 className="text-xl font-bold text-[#1E1B4B] mb-2 font-[family-name:var(--font-heading)]">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-[#7C3AED]/30" />
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-to-br from-[#1E1B4B] to-[#7C3AED]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-4">
+              Testimoni
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
+              Pengalaman Klien Kami
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Dewi Lestari",
+                role: "Marketing Manager, ABC Corp",
+                content: "Proses konsultasinya sangat membantu! Tim MomenIndah memahami kebutuhan kami dengan baik dan memberikan solusi yang tepat.",
+                rating: 5,
+              },
+              {
+                name: "Andi Wijaya",
+                role: "CEO, Startup XYZ",
+                content: "Response cepat dan proposal yang detail. Sangat recommended untuk corporate event!",
+                rating: 5,
+              },
+              {
+                name: "Sari Indah",
+                role: "HR Director, Finance Corp",
+                content: "Dari konsultasi sampai eksekusi event, semuanya berjalan smooth. Tim yang sangat profesional!",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl p-6 relative"
+              >
+                <Quote className="w-10 h-10 text-[#7C3AED]/20 absolute top-6 right-6" />
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-[#F59E0B] fill-[#F59E0B]" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-6">&quot;{testimonial.content}&quot;</p>
+                <div>
+                  <p className="font-bold text-[#1E1B4B]">{testimonial.name}</p>
+                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            subtitle="FAQ"
+            title="Pertanyaan Seputar Konsultasi"
+            description="Jawaban untuk pertanyaan yang sering diajukan"
+          />
+
+          <div className="space-y-4">
+            <FAQItem
+              question="Apakah konsultasi benar-benar gratis?"
+              answer="Ya, konsultasi awal benar-benar gratis tanpa komitmen. Kami akan berdiskusi tentang kebutuhan event Anda dan memberikan estimasi serta rekomendasi tanpa biaya apapun."
+            />
+            <FAQItem
+              question="Berapa lama waktu response setelah mengisi form?"
+              answer="Tim kami akan menghubungi Anda dalam waktu maksimal 1x24 jam setelah form diterima. Untuk response yang lebih cepat, Anda bisa langsung menghubungi kami via WhatsApp."
+            />
+            <FAQItem
+              question="Apakah bisa konsultasi untuk event di luar kota?"
+              answer="Tentu! Kami melayani event di seluruh Indonesia. Konsultasi bisa dilakukan via telepon, video call, atau kami bisa mengatur pertemuan langsung jika diperlukan."
+            />
+            <FAQItem
+              question="Bagaimana jika saya belum memiliki budget yang pasti?"
+              answer="Tidak masalah! Kami bisa membantu memberikan estimasi budget berdasarkan konsep dan kebutuhan event Anda. Kami juga fleksibel dalam menyesuaikan proposal dengan budget yang tersedia."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-[#1E1B4B]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-[family-name:var(--font-heading)]">
+              Masih Ragu?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Lihat portfolio kami terlebih dahulu atau langsung hubungi kami untuk diskusi
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/portfolio" variant="secondary" size="lg">
+                Lihat Portfolio <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button href="/kontak" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                Hubungi Kami
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </>
+  );
+}
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="border border-gray-200 rounded-xl overflow-hidden"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
+      >
+        <span className="font-semibold text-[#1E1B4B] text-left">{question}</span>
+        <ChevronDown
+          className={`w-5 h-5 text-[#7C3AED] transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+          <p className="text-gray-600">{answer}</p>
+        </div>
+      )}
+    </motion.div>
   );
 }

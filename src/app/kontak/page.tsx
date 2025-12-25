@@ -12,8 +12,14 @@ import {
   Instagram,
   Facebook,
   Linkedin,
+  ArrowRight,
+  Award,
+  Users,
+  Star,
+  ChevronDown,
 } from "lucide-react";
 import Button from "@/components/Button";
+import SectionTitle from "@/components/SectionTitle";
 
 const contactInfo = [
   {
@@ -258,7 +264,122 @@ export default function KontakPage() {
         </div>
       </section>
 
-      {/* FAQ CTA */}
+      {/* Stats Section */}
+      <section className="py-16 bg-[#FAF5FF]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "< 1 Jam", label: "Rata-rata Respon", icon: Clock },
+              { value: "300+", label: "Event Sukses", icon: Award },
+              { value: "50+", label: "Klien Aktif", icon: Users },
+              { value: "4.9/5", label: "Rating Kepuasan", icon: Star },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="w-7 h-7 text-white" />
+                </div>
+                <div className="text-2xl md:text-3xl font-bold gradient-text mb-1 font-[family-name:var(--font-heading)]">
+                  {stat.value}
+                </div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            subtitle="FAQ"
+            title="Pertanyaan Umum"
+            description="Jawaban untuk pertanyaan yang sering diajukan"
+          />
+
+          <div className="space-y-4">
+            <FAQItem
+              question="Bagaimana cara tercepat untuk menghubungi kalian?"
+              answer="Cara tercepat adalah melalui WhatsApp di nomor 0812-3456-7890. Tim kami biasanya merespon dalam waktu kurang dari 1 jam di jam kerja."
+            />
+            <FAQItem
+              question="Apakah bisa meeting langsung di kantor?"
+              answer="Tentu! Kantor kami buka Senin-Jumat pukul 09:00-18:00 dan Sabtu pukul 09:00-14:00. Kami sarankan untuk membuat janji terlebih dahulu agar kami bisa menyiapkan tim yang tepat untuk berdiskusi dengan Anda."
+            />
+            <FAQItem
+              question="Apakah melayani event di luar Jakarta?"
+              answer="Ya, kami melayani event di seluruh Indonesia. Untuk event di luar Jakarta, kami memiliki jaringan vendor partner yang tersebar di berbagai kota besar."
+            />
+            <FAQItem
+              question="Berapa lama biasanya proses dari konsultasi sampai deal?"
+              answer="Tergantung kompleksitas event, biasanya prosesnya memakan waktu 3-7 hari kerja. Ini mencakup konsultasi awal, site visit (jika diperlukan), penyusunan proposal, dan negosiasi."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Alternative Contact */}
+      <section className="py-20 bg-gradient-to-br from-[#1E1B4B] to-[#7C3AED]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-2 rounded-full bg-white/20 text-white text-sm font-semibold mb-4">
+              Cara Lain Menghubungi Kami
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
+              Pilih Cara yang Paling Nyaman untuk Anda
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Konsultasi Online",
+                description: "Isi form konsultasi dan tim kami akan menghubungi Anda dalam 1x24 jam",
+                action: "Mulai Konsultasi",
+                href: "/konsultasi",
+              },
+              {
+                title: "WhatsApp Chat",
+                description: "Chat langsung dengan tim kami untuk respon cepat",
+                action: "Chat Sekarang",
+                href: "https://wa.me/6281234567890",
+              },
+              {
+                title: "Email",
+                description: "Kirim detail kebutuhan event Anda via email untuk proposal lengkap",
+                action: "Kirim Email",
+                href: "mailto:hello@momenindah.id",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl p-8 text-center"
+              >
+                <h3 className="text-xl font-bold text-[#1E1B4B] mb-3 font-[family-name:var(--font-heading)]">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 mb-6">{item.description}</p>
+                <Button href={item.href} variant="primary" className="w-full justify-center">
+                  {item.action} <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -268,17 +389,52 @@ export default function KontakPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#1E1B4B] mb-6 font-[family-name:var(--font-heading)]">
-              Punya Pertanyaan Lain?
+              Siap Mewujudkan Event Impian Anda?
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Jangan ragu untuk menghubungi kami. Tim kami siap menjawab semua pertanyaan Anda tentang event.
+              Jangan ragu untuk menghubungi kami. Tim kami siap membantu Anda menciptakan momen yang tak terlupakan!
             </p>
-            <Button href="/konsultasi" variant="primary" size="lg">
-              Konsultasi Gratis
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/konsultasi" variant="primary" size="lg">
+                Konsultasi Gratis <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button href="/portfolio" variant="outline" size="lg">
+                Lihat Portfolio Kami
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
     </>
+  );
+}
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="border border-gray-200 rounded-xl overflow-hidden"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors"
+      >
+        <span className="font-semibold text-[#1E1B4B] text-left">{question}</span>
+        <ChevronDown
+          className={`w-5 h-5 text-[#7C3AED] transition-transform ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+          <p className="text-gray-600">{answer}</p>
+        </div>
+      )}
+    </motion.div>
   );
 }
